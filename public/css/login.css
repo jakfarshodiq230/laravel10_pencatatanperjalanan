@@ -1,0 +1,86 @@
+.form-container {
+    padding: 20px;
+}
+
+.login-container {
+    width: 400px;
+}
+
+.header {
+    display: block;
+    margin: auto;
+    font-size: 2em;
+}
+
+.form-check-label {
+    font-size: small;
+    cursor: pointer;
+}
+
+.form-check-input {
+    cursor: pointer;
+}
+
+.forgot {
+    font-size: small;
+    text-decoration: none;
+    color: #0c0c0c;
+}
+
+.forgot:hover {
+    color: rgb(11, 94, 215);
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-control {
+    width: 300px;
+}
+
+.card-body {
+    width: max-content;
+    display: block;
+    margin: auto;
+}
+
+.btn {
+    width: 300px;
+}
+
+.signup-container {
+    height: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.signup-container p {
+    font-size: small;
+    margin-right: 5px;
+}
+
+.signup-container a {
+    font-size: small;
+}
+
+form input[type="email"],
+form input[type="password"],
+form input[type="text"] {
+    padding: 0.5rem 2.5rem;
+    height: fit-content;
+    font-size: medium;
+}
+
+.form-item {
+    position: relative;
+}
+
+.form-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.3rem;
+    opacity: 0.4;
+}

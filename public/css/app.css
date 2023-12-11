@@ -1,0 +1,59 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    /* background-image: url("/img/bg/istanaa.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.logo-header a {
+    text-decoration: none;
+}
+
+.jadwal-dinas select {
+    width: 300px;
+    height: fit-content;
+}
+
+.img-info {
+    width: 100px;
+    height: 100px;
+}
+
+.card-container {
+    margin-top: -130px !important;
+}
+
+.information-card {
+    min-width: 160px !important;
+    min-height: 170px !important;
+}
+
+.ts-wrapper {
+    min-width: 500px;
+}
+
+table {
+    text-align: center;
+}
+
+.filter-visa {
+    max-width: fit-content;
+}
+
+.form-label {
+    font-size: 16px !important;
+    margin-bottom: 7px !important;
+}
+
+.logout:hover {
+    font-weight: 500;
+}
