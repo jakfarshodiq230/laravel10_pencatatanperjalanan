@@ -146,13 +146,13 @@
                                                 </a>
                                             @endif
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal">
+                                                data-bs-target="#exampleModal{{ $nomor }}">
                                                 <i class="bi bi-trash3"></i>
                                             </button>
                                         </div>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                        <div class="modal fade" id="exampleModal{{ $nomor }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -170,7 +170,7 @@
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Batal</button>
                                                         <form
-                                                            action="{{ url('listpassport/personil/delete/' . $dp['nomor_passport'] . '/' . $dp['tim_kegiatan']) }}"
+                                                            action="{{ url('listpassport/visa/delete/' .$dp['kegiatan_id'].'/'. $dp['negara_id']. '/'. $dp['nomor_passport'] . '/' . $dp['tim_kegiatan']) }}"
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
