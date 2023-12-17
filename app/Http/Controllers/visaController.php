@@ -158,14 +158,15 @@ class visaController extends Controller
         return view('list_of_passport.edit-visa', compact('visa', 'personil', 'Ktr'));
     }
 
-    public function hapusEdvence($idPassport, $group)
+    public function hapusVISA($id_kegiatan,$negara,$idPassport, $group)
     {
+        //dd($id_kegiatan);
         if ($group != "group") {
-            $personil = personil::where('passport_id', $idPassport)->first();
+            $personil = personil::where('passport_id', $idPassport)->where('kegiatan_id', $id_kegiatan)->where('negara_id', $negara)->first();
             $Kegiatan = $personil->kegiatan_id;
             if (!empty($personil)) {
-                $hapusPersonil = personil::where('passport_id', $idPassport)->delete();
-                $visa = Visa::where('passport_id', $idPassport)->first();
+                $hapusPersonil = personil::where('passport_id', $idPassport)->where('kegiatan_id', $id_kegiatan)->where('negara_id', $negara)->delete();
+                $visa = Visa::where('passport_id', $idPassport)->where('id_kegiatan', $id_kegiatan)->where('negara_id', $negara)->first();
                 if (!empty($visa)) {
                     $hapusVisa = Visa::find($visa->id);
                     $hapusVisa->delete();
@@ -174,17 +175,17 @@ class visaController extends Controller
                     Storage::delete($visa->scan_vaksin);
                 }
                 Alert::success('Success', 'Berhasil Hapus Data');
-                return redirect('listpassport/personil/' . $Kegiatan);
+                return redirect('listpassport/personil/' . $id_kegiatan.'/'.$negara.'/'.$group);
             } else {
                 Alert::error('error', 'Gagal Hapus Data');
-                return redirect('listpassport/personil/' . $Kegiatan);
+                return redirect('listpassport/personil/' . $id_kegiatan.'/'.$negara.'/'.$group);
             }
         } else {
-            $maingroup = maingroup::where('passport_id', $idPassport)->first();
+            $maingroup = maingroup::where('passport_id', $idPassport)->where('kegiatan_id', $id_kegiatan)->where('negara_id', $negara)->first();
             $Kegiatan = $maingroup->kegiatan_id;
             if (!empty($maingroup)) {
-                $hapusMaingroup = maingroup::where('passport_id', $idPassport)->delete();
-                $visa = Visa::where('passport_id', $idPassport)->first();
+                $hapusMaingroup = maingroup::where('passport_id', $idPassport)->where('kegiatan_id', $id_kegiatan)->where('negara_id', $negara)->delete();
+                $visa = Visa::where('passport_id', $idPassport)->where('id_kegiatan', $id_kegiatan)->where('negara_id', $negara)->first();
                 if (!empty($visa)) {
                     $hapusVisa = Visa::find($visa->id);
                     $hapusVisa->delete();
@@ -193,10 +194,10 @@ class visaController extends Controller
                     Storage::delete($visa->scan_vaksin);
                 }
                 Alert::success('Success', 'Berhasil Hapus Data');
-                return redirect('listpassport/maingroup/' . $Kegiatan);
+                return redirect('listpassport/maingroup/' . $id_kegiatan.'/'.$negara.'/'.$group);
             } else {
                 Alert::error('error', 'Gagal Hapus Data');
-                return redirect('listpassport/maingroup/' . $Kegiatan);
+                return redirect('listpassport/maingroup/' . $id_kegiatan.'/'.$negara.'/'.$group);
             }
         }
     }

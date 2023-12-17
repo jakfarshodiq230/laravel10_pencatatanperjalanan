@@ -61,11 +61,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/listpassport/personil/edit/{id1}/{id2}/{id3}/{id4}', [visaController::class, 'edit'])->name('editvisa');
     Route::post('/listpassport/personil/store-visa', [visaController::class, 'storeVisa'])->name('storeVisa');
     Route::post('/listpassport/personil/update-visa', [visaController::class, 'updateVisa'])->name('updateVisa');
-    Route::delete('/listpassport/personil/delete/{id1}/{id2}', [visaController::class, 'hapusEdvence']);
+    
     // MAIN GROUP
     Route::get('/listpassport/maingroup/{id1}/{id2}/{id3}', [maingroupController::class, 'index'])->name('maingroup');
     Route::post('/listpassport/maingroup/simpan/{id}', [maingroupController::class, 'store']);
     Route::get('/listpassport/maingroup/export/{id}', [maingroupController::class, 'export']);
+
+    // VISA
+    Route::delete('/listpassport/visa/delete/{id1}/{id2}/{id3}/{id4}', [visaController::class, 'hapusVISA']);
 });
 
 Route::post('/login', function () {
